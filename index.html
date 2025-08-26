@@ -1,0 +1,1285 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Chinedu Ofoegbu Portfolio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Basic Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --spotify-black: #000000;
+            --spotify-dark-gray: #121212;
+            --spotify-gray: #191414;
+            --spotify-green: #1db954;
+            --spotify-light-green: #1ed760;
+            --spotify-white: #ffffff;
+            --text-secondary: #b3b3b3;
+            --text-muted: #737373;
+        }
+        
+        body {
+            background: var(--spotify-black);
+            color: var(--spotify-white);
+            font-family: "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--spotify-white);
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin: 0 0 1em 0;
+        }
+        
+        h2 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        p {
+            margin: 0 0 1.5em 0;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+        
+        a {
+            color: var(--spotify-green);
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        a:hover {
+            color: var(--spotify-light-green);
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -1rem;
+        }
+        
+        .col-4 {
+            width: 33.33%;
+            padding: 0 1rem;
+        }
+        
+        .col-6 {
+            width: 50%;
+            padding: 0 1rem;
+        }
+        
+        .col-8 {
+            width: 66.66%;
+            padding: 0 1rem;
+        }
+        
+        /* Header */
+        #header {
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(29, 185, 84, 0.1);
+            height: 5rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10000;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        #header.scrolled {
+            background: rgba(0, 0, 0, 0.95);
+            border-bottom: 1px solid rgba(29, 185, 84, 0.2);
+        }
+        
+        #logo a {
+            color: var(--spotify-white);
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #ffffff 0%, #1db954 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        #nav ul {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+        
+        #nav a {
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: -0.01em;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        #nav a:hover {
+            color: var(--spotify-white);
+        }
+        
+        #nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #1db954, #1ed760);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        #nav a:hover::after {
+            width: 100%;
+        }
+        
+        #nav .button.primary {
+            background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
+            color: var(--spotify-black);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(29, 185, 84, 0.2);
+        }
+        
+        #nav .button.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(29, 185, 84, 0.3);
+            background: linear-gradient(135deg, #1ed760 0%, #1fdf64 100%);
+        }
+        
+        /* Banner */
+        #banner {
+            background: radial-gradient(ellipse at center, #191414 0%, #000000 70%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(29, 185, 84, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(30, 215, 96, 0.1) 0%, transparent 50%);
+        }
+        
+        #banner .content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        #banner header {
+            flex: 1;
+            max-width: 650px;
+        }
+        
+        #banner h2 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #b3b3b3 50%, #1db954 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.03em;
+        }
+        
+        #banner p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-weight: 400;
+            font-style: italic;
+            max-width: 500px;
+        }
+        
+        #banner .image {
+            flex: 0 0 300px;
+            text-align: center;
+        }
+        
+        #banner .image svg {
+            width: 180px;
+            height: 180px;
+            filter: drop-shadow(0 0 40px rgba(29, 185, 84, 0.4));
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+        
+        .goto-next {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(29, 185, 84, 0.1) 0%, rgba(30, 215, 96, 0.05) 100%);
+            border: 2px solid rgba(29, 185, 84, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--spotify-green);
+            font-size: 1.4rem;
+            font-weight: 300;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(20px) saturate(180%);
+            z-index: 1000;
+            box-shadow: 0 8px 25px rgba(29, 185, 84, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .goto-next::before {
+            content: '↓';
+            font-weight: 300;
+            z-index: 2;
+            position: relative;
+        }
+        
+        .goto-next::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+            transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+        }
+        
+        .goto-next:hover::after {
+            left: 100%;
+        }
+        
+        .goto-next:hover {
+            background: linear-gradient(135deg, rgba(29, 185, 84, 0.2) 0%, rgba(30, 215, 96, 0.1) 100%);
+            border-color: var(--spotify-green);
+            color: var(--spotify-light-green);
+            transform: translateX(-50%) translateY(-5px) scale(1.1);
+            box-shadow: 0 15px 40px rgba(29, 185, 84, 0.25);
+        }
+        
+        /* Spotlight Sections */
+        .spotlight {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .style1 {
+            background: linear-gradient(135deg, #191414 0%, #0d0d0d 100%);
+        }
+        
+        .style2 {
+            background: linear-gradient(135deg, #0d1117 0%, #161616 100%);
+        }
+        
+        .style3 {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #0d0d0d 100%);
+        }
+        
+        .spotlight .image {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 50%;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .spotlight .tech-logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .spotlight .tech-logo {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+        }
+        
+        .spotlight .tech-logo:hover {
+            transform: scale(1.08) rotate(3deg);
+            background: rgba(29, 185, 84, 0.03);
+            border-color: rgba(29, 185, 84, 0.15);
+            box-shadow: 0 15px 50px rgba(29, 185, 84, 0.15);
+            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3));
+        }
+        
+        .spotlight.right .image {
+            right: 0;
+        }
+        
+        .spotlight.left .image,
+        .spotlight.bottom .image {
+            left: 0;
+        }
+        
+        .spotlight .content {
+            position: relative;
+            z-index: 2;
+            width: 50%;
+            padding: 5rem 4rem 7rem 4rem;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .spotlight.right .content {
+            margin-left: 0;
+            border-radius: 0 0 0 30px;
+        }
+        
+        .spotlight.left .content,
+        .spotlight.bottom .content {
+            margin-left: 50%;
+            border-radius: 30px 0 0 0;
+        }
+        
+        .spotlight header h2 {
+            color: var(--spotify-white);
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .spotlight header p {
+            font-size: 1.1rem;
+            color: var(--spotify-green);
+            font-weight: 500;
+            margin-bottom: 2rem;
+            letter-spacing: -0.01em;
+        }
+        
+        .spotlight .content > p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .spotlight .content ul li {
+            background: linear-gradient(135deg, rgba(29, 185, 84, 0.05) 0%, rgba(30, 215, 96, 0.02) 100%);
+            border: 1px solid rgba(29, 185, 84, 0.1);
+            border-left: 3px solid var(--spotify-green);
+            margin: 1rem 0;
+            padding: 1.2rem 1.5rem;
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .spotlight .content ul li:hover {
+            background: linear-gradient(135deg, rgba(29, 185, 84, 0.08) 0%, rgba(30, 215, 96, 0.04) 100%);
+            border-color: rgba(29, 185, 84, 0.2);
+            transform: translateX(8px);
+            box-shadow: 0 4px 20px rgba(29, 185, 84, 0.1);
+        }
+        
+        /* Enhanced Buttons */
+        .button {
+            background: linear-gradient(135deg, rgba(29, 185, 84, 0.1) 0%, rgba(30, 215, 96, 0.05) 100%);
+            border: 2px solid rgba(29, 185, 84, 0.3);
+            border-radius: 50px;
+            color: var(--spotify-green);
+            display: inline-block;
+            font-family: "Inter", sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            padding: 1rem 2rem;
+            text-transform: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .button:hover::before {
+            left: 100%;
+        }
+        
+        .button:hover {
+            background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
+            color: var(--spotify-black);
+            border-color: var(--spotify-light-green);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(29, 185, 84, 0.3);
+        }
+        
+        /* Wrapper Style 1 */
+        .wrapper.style1 {
+            background: radial-gradient(ellipse at center, #0a0a0a 0%, #000000 100%);
+            border-top: 1px solid rgba(29, 185, 84, 0.1);
+            border-bottom: 1px solid rgba(29, 185, 84, 0.1);
+            padding: 8rem 0;
+        }
+        
+        .wrapper.style1 .major h2 {
+            background: linear-gradient(135deg, #ffffff 0%, #1db954 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+        }
+        
+        .wrapper.style1 .major p {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 4rem auto;
+            line-height: 1.7;
+        }
+        
+        .box.alt .row {
+            gap: 2rem 0;
+        }
+        
+        .box.alt section {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: linear-gradient(135deg, rgba(29, 185, 84, 0.03) 0%, rgba(0, 0, 0, 0.3) 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(29, 185, 84, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .box.alt section:hover {
+            background: linear-gradient(135deg, rgba(29, 185, 84, 0.08) 0%, rgba(30, 215, 96, 0.03) 100%);
+            border-color: rgba(29, 185, 84, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(29, 185, 84, 0.1);
+        }
+        
+        .icon-emoji {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #1db954 0%, #1ed760 50%, #1fdf64 100%);
+            border-radius: 50%;
+            color: var(--spotify-black);
+            font-size: 2rem;
+            line-height: 80px;
+            margin-bottom: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(29, 185, 84, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .icon-emoji::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .box.alt section:hover .icon-emoji {
+            transform: scale(1.15) rotate(8deg);
+            box-shadow: 0 15px 40px rgba(29, 185, 84, 0.4);
+        }
+        
+        .box.alt section:hover .icon-emoji::before {
+            top: -100%;
+            left: -100%;
+        }
+        
+        /* Wrapper Style 2 */
+        .wrapper.style2 {
+            background: linear-gradient(135deg, #191414 0%, #0d0d0d 100%);
+            padding: 6rem 0;
+            text-align: center;
+        }
+        
+        .wrapper.style2 h2 {
+            background: linear-gradient(135deg, #ffffff 0%, #1db954 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        
+        .cta {
+            max-width: 600px;
+            margin: 3rem auto 0 auto;
+        }
+        
+        .cta .row {
+            align-items: stretch;
+            gap: 1rem;
+        }
+        
+        .cta input[type="email"] {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(29, 185, 84, 0.2);
+            border-radius: 50px;
+            color: var(--spotify-white);
+            padding: 1.2rem 1.8rem;
+            font-size: 1rem;
+            font-family: "Inter", sans-serif;
+            width: 100%;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .cta input[type="email"]:focus {
+            border-color: var(--spotify-green);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(29, 185, 84, 0.1);
+        }
+        
+        .cta input[type="submit"] {
+            background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
+            border: none;
+            border-radius: 50px;
+            color: var(--spotify-black);
+            font-weight: 600;
+            font-family: "Inter", sans-serif;
+            padding: 1.2rem 2.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(29, 185, 84, 0.2);
+        }
+        
+        .cta input[type="submit"]:hover {
+            background: linear-gradient(135deg, #1ed760 0%, #1fdf64 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(29, 185, 84, 0.3);
+        }
+        
+        /* Footer */
+        #footer {
+            background: var(--spotify-black);
+            border-top: 1px solid rgba(29, 185, 84, 0.1);
+            padding: 4rem 0 2rem 0;
+            text-align: center;
+        }
+        
+        #footer .icons {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        #footer .icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: auto;
+            min-width: 120px;
+            height: 60px;
+            padding: 0 1.5rem;
+            background: linear-gradient(135deg, rgba(29, 185, 84, 0.08) 0%, rgba(30, 215, 96, 0.03) 100%);
+            border: 2px solid rgba(29, 185, 84, 0.15);
+            border-radius: 30px;
+            color: var(--spotify-green);
+            font-size: 1rem;
+            font-weight: 500;
+            font-family: "Poppins", sans-serif;
+            text-decoration: none;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(20px) saturate(180%);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        #footer .icons a i {
+            margin-right: 0.75rem;
+            font-size: 1.2rem;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+        
+        #footer .icons a::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        #footer .icons a:hover::before {
+            top: -100%;
+            left: -100%;
+        }
+        
+        #footer .icons a:hover {
+            background: linear-gradient(135deg, #1db954 0%, #1ed760 50%, #1fdf64 100%);
+            color: var(--spotify-black);
+            border-color: var(--spotify-light-green);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(29, 185, 84, 0.3);
+        }
+        
+        #footer .icons a:hover i {
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+        
+        #footer .copyright {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+        
+        #footer .copyright li {
+            display: inline-block;
+            margin: 0 1rem;
+        }
+        
+        /* Enhanced Responsive Design */
+        @media screen and (max-width: 1200px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            #banner h2 {
+                font-size: 3.5rem;
+            }
+            
+            .spotlight .content {
+                padding: 4rem 3rem 6rem 3rem;
+            }
+        }
+        
+        @media screen and (max-width: 980px) {
+            #banner h2 {
+                font-size: 2.8rem;
+            }
+            
+            #banner .content {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            #banner .image {
+                flex: none;
+                margin-top: 1rem;
+            }
+            
+            .spotlight .content,
+            .spotlight.right .content,
+            .spotlight.left .content,
+            .spotlight.bottom .content {
+                width: 100%;
+                margin-left: 0;
+                border-radius: 20px 20px 0 0;
+                padding: 3rem 2rem 5rem 2rem;
+            }
+            
+            .spotlight .image {
+                position: relative;
+                width: 100%;
+                height: 250px;
+                order: -1;
+            }
+            
+            .spotlight .tech-logo-container {
+                height: 250px;
+            }
+            
+            .row {
+                flex-direction: column;
+            }
+            
+            .col-4, .col-6, .col-8 {
+                width: 100%;
+                margin-bottom: 2rem;
+            }
+        }
+        
+        @media screen and (max-width: 736px) {
+            #header {
+                height: 4rem;
+                padding: 0 1rem;
+            }
+            
+            #nav ul {
+                display: none;
+            }
+            
+            #banner {
+                padding: 6rem 0 4rem 0;
+            }
+            
+            #banner h2 {
+                font-size: 2.2rem;
+            }
+            
+            #banner p {
+                font-size: 1.1rem;
+            }
+            
+            .spotlight .content {
+                padding: 2rem 1.5rem 4rem 1.5rem;
+            }
+            
+            .cta .row {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .cta .col-6, .cta .col-3 {
+                width: 100%;
+            }
+            
+            #footer .icons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            #footer .icons a {
+                min-width: 150px;
+                justify-content: center;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            body {
+                font-size: 14px;
+            }
+            
+            #banner h2 {
+                font-size: 1.8rem;
+            }
+            
+            .wrapper.style1 .major h2 {
+                font-size: 2.5rem;
+            }
+            
+            .spotlight header h2 {
+                font-size: 2rem;
+            }
+            
+            .box.alt section {
+                padding: 2rem 1rem;
+            }
+        }
+        
+        /* iOS/Android Optimizations */
+        @supports (-webkit-touch-callout: none) {
+            /* iOS Safari specific styles */
+            body {
+                -webkit-text-size-adjust: none;
+                -webkit-tap-highlight-color: transparent;
+            }
+            
+            .goto-next, .button, #footer .icons a {
+                -webkit-tap-highlight-color: rgba(29, 185, 84, 0.2);
+            }
+        }
+        
+        @media screen and (max-device-width: 812px) and (orientation: landscape) {
+            /* Mobile landscape optimization */
+            #banner {
+                min-height: 70vh;
+            }
+            
+            .spotlight {
+                min-height: auto;
+            }
+        }
+        
+        /* Touch device improvements */
+        @media (hover: none) and (pointer: coarse) {
+            .goto-next:hover,
+            .button:hover,
+            #footer .icons a:hover,
+            .spotlight .content ul li:hover {
+                transform: none;
+            }
+            
+            .goto-next:active,
+            .button:active,
+            #footer .icons a:active {
+                transform: scale(0.95);
+            }
+        }
+        
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Fade animations */
+        .fade-up {
+            animation: fadeUp 1s ease-out;
+        }
+        
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .actions.special {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-left: 0;
+        }
+        
+        .actions.special li {
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body class="is-preload landing">
+    <div id="page-wrapper">
+        
+        <!-- Header -->
+        <header id="header">
+            <h1 id="logo"><a href="#banner">Spotify Analytics</a></h1>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#banner">Home</a></li>
+                    <li><a href="#one">SQL</a></li>
+                    <li><a href="#two">Power BI</a></li>
+                    <li><a href="#three">Python</a></li>
+                    <li><a href="https://github.com/chineduofoegbu98/2024SpotifyStreamingAnalytics" class="button primary" target="_blank">View Repository</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Banner -->
+        <section id="banner">
+            <div class="content">
+                <header>
+                    <h2>Chinedu Ofoegbu's Portfolio</h2>
+                    <p>A detailed, full pipeline Streaming Analysis comprised of various projects utilising SQL, Python, Power BI & Excel. With historical track analysis (from 1987) & predictive analysis (2025 onwards).</p>
+                </header>
+                <span class="image">
+                    <svg width="180" height="180" viewBox="0 0 24 24" fill="#1db954">
+                        <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.42 1.56-.299.421-1.02.599-1.559.3z"/>
+                    </svg>
+                </span>
+            </div>
+            <a href="#one" class="goto-next scrolly">Next</a>
+        </section>
+
+        <!-- One -->
+        <section id="one" class="spotlight style1 bottom">
+            <span class="image fit main">
+                <div class="tech-logo-container">
+                    <svg class="tech-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="db-gradient-1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#4b9aff"/>
+                                <stop offset="25%" style="stop-color:#0066cc"/>
+                                <stop offset="50%" style="stop-color:#003d7a"/>
+                                <stop offset="75%" style="stop-color:#6633cc"/>
+                                <stop offset="100%" style="stop-color:#9933ff"/>
+                            </linearGradient>
+                            <linearGradient id="db-gradient-2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#4d79a4"/>
+                                <stop offset="50%" style="stop-color:#5e87b0"/>
+                                <stop offset="100%" style="stop-color:#8db9d1"/>
+                            </linearGradient>
+                        </defs>
+                        <!-- Outer ellipse -->
+                        <ellipse cx="50" cy="25" rx="40" ry="12" fill="url(#db-gradient-1)" opacity="0.8"/>
+                        <!-- Middle twisted band -->
+                        <path d="M10,35 Q30,50 50,45 Q70,40 90,55 Q70,70 50,65 Q30,60 10,75 Q30,60 50,65 Q70,70 90,55 Q70,40 50,45 Q30,50 10,35" fill="url(#db-gradient-2)" opacity="0.7"/>
+                        <!-- Bottom ellipse -->
+                        <ellipse cx="50" cy="75" rx="40" ry="12" fill="url(#db-gradient-1)" opacity="0.8"/>
+                        <!-- Connecting twisted bands -->
+                        <path d="M10,25 Q50,45 90,25 Q70,35 50,30 Q30,35 10,25" fill="url(#db-gradient-2)" opacity="0.6"/>
+                        <path d="M10,75 Q50,55 90,75 Q70,65 50,70 Q30,65 10,75" fill="url(#db-gradient-2)" opacity="0.6"/>
+                    </svg>
+                </div>
+            </span>
+            <div class="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4 col-12-medium">
+                            <header>
+                                <h2>SQL Analysis</h2>
+                                <p>Historical streaming data analysis using SQL Server</p>
+                            </header>
+                        </div>
+                        <div class="col-8 col-12-medium">
+                            <ul>
+                                <li>Production-ready SQL queries with comprehensive inline documentation</li>
+                                <li>Data quality assessment procedures and systematic cleaning protocols</li>
+                                <li>Cross-platform performance analysis delivering strategic insights</li>
+                                <li>37-year streaming evolution analysis revealing market transformation patterns</li>
+                            </ul>
+                            <ul class="actions">
+                                <li><a href="https://github.com/chineduofoegbu98/2024SpotifyStreamingAnalytics/tree/main/02%20-%20SQLAnalysis" class="button" target="_blank">Explore SQL Code</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#two" class="goto-next scrolly">Next</a>
+        </section>
+
+        <!-- Two -->
+        <section id="two" class="spotlight style2 right">
+            <span class="image fit main">
+                <div class="tech-logo-container">
+                    <svg class="tech-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="powerbi-main" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#F2C811"/>
+                                <stop offset="25%" style="stop-color:#FFCD00"/>
+                                <stop offset="75%" style="stop-color:#FFB000"/>
+                                <stop offset="100%" style="stop-color:#FF9500"/>
+                            </linearGradient>
+                            <linearGradient id="powerbi-light" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#FFF4C4"/>
+                                <stop offset="100%" style="stop-color:#FFE680"/>
+                            </linearGradient>
+                        </defs>
+                        <!-- Shortest bar -->
+                        <rect x="20" y="70" width="15" height="20" rx="7" fill="url(#powerbi-light)"/>
+                        <!-- Medium bar -->
+                        <rect x="42.5" y="55" width="15" height="35" rx="7" fill="url(#powerbi-main)"/>
+                        <!-- Tallest bar -->
+                        <rect x="65" y="30" width="15" height="60" rx="7" fill="url(#powerbi-main)"/>
+                        <!-- Background subtle bars for depth -->
+                        <rect x="18" y="72" width="19" height="16" rx="8" fill="url(#powerbi-main)" opacity="0.3"/>
+                        <rect x="40.5" y="57" width="19" height="31" rx="8" fill="url(#powerbi-light)" opacity="0.3"/>
+                        <rect x="63" y="32" width="19" height="56" rx="8" fill="url(#powerbi-light)" opacity="0.3"/>
+                    </svg>
+                </div>
+            </span>
+            <div class="content">
+                <header>
+                    <h2>Power BI Dashboard</h2>
+                    <p>Professional multi-page Power BI dashboard with corporate-standard presentation</p>
+                </header>
+                <p>Interactive data visualization showcasing streaming trends, artist performance metrics, and market insights. Features comprehensive filtering capabilities with consistent Spotify branding throughout all dashboard pages.</p>
+                <ul>
+                    <li>High-resolution screenshots enabling immediate visual assessment without software requirements</li>
+                    <li>Interactive filtering capabilities with consistent Spotify branding throughout</li>
+                    <li>Executive-level presentation materials suitable for stakeholder communications</li>
+                    <li>Advanced DAX calculations and custom visualizations for comprehensive analytics</li>
+                </ul>
+                <ul class="actions">
+                    <li><a href="https://github.com/chineduofoegbu98/2024SpotifyStreamingAnalytics/tree/main/03%20-%20PowerBiDashboard" class="button" target="_blank">View Dashboard</a></li>
+                </ul>
+            </div>
+            <a href="#three" class="goto-next scrolly">Next</a>
+        </section>
+
+        <!-- Three -->
+        <section id="three" class="spotlight style3 left">
+            <span class="image fit main">
+                <div class="tech-logo-container">
+                    <svg class="tech-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="python-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#3776AB"/>
+                                <stop offset="50%" style="stop-color:#4B8BBE"/>
+                                <stop offset="100%" style="stop-color:#5A9BD4"/>
+                            </linearGradient>
+                            <linearGradient id="python-yellow" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#FFD43B"/>
+                                <stop offset="50%" style="stop-color:#FFE873"/>
+                                <stop offset="100%" style="stop-color:#FFF2A1"/>
+                            </linearGradient>
+                        </defs>
+                        <!-- Blue snake head (top left) -->
+                        <path d="M25,25 Q20,20 30,20 L55,20 Q65,20 60,25 L60,40 Q60,45 55,45 L40,45 L40,55 L60,55 L60,40 Q60,35 65,35 L70,35 Q75,35 75,40 L75,55 Q75,60 70,60 L65,60 Q60,60 60,55 L55,55 Q50,55 50,50 L50,45 Q50,40 45,40 L30,40 Q25,40 25,35 Z" fill="url(#python-blue)"/>
+                        <!-- Yellow snake tail (bottom right) -->
+                        <path d="M75,75 Q80,80 70,80 L45,80 Q35,80 40,75 L40,60 Q40,55 45,55 L60,55 L60,45 L40,45 L40,60 Q40,65 35,65 L30,65 Q25,65 25,60 L25,45 Q25,40 30,40 L35,40 Q40,40 40,45 L45,45 Q50,45 50,50 L50,55 Q50,60 55,60 L70,60 Q75,60 75,65 Z" fill="url(#python-yellow)"/>
+                        <!-- Eye dots -->
+                        <circle cx="35" cy="30" r="2" fill="white"/>
+                        <circle cx="65" cy="70" r="2" fill="white"/>
+                    </svg>
+                </div>
+            </span>
+            <div class="content">
+                <header>
+                    <h2>Python Real-Time Tracker</h2>
+                    <p>Python API integration for real-time music popularity monitoring</p>
+                </header>
+                <p>Advanced Python application demonstrating API integration with the Spotify Web API. Features real-time data processing, authentication handling, and comprehensive error management for robust performance.</p>
+                <ul>
+                    <li>Simple Python program demonstrating first-time API usage and real-time data processing</li>
+                    <li>Spotify Web API connection with authentication setup and basic error handling</li>
+                    <li>Real-time popularity tracking system comparing current data with historical baselines</li>
+                    <li>Learning-focused project showcasing API fundamentals and data visualization basics</li>
+                </ul>
+                <ul class="actions">
+                    <li><a href="https://github.com/chineduofoegbu98/2024SpotifyStreamingAnalytics/tree/main/04%20-%20RealTimeTracker" class="button" target="_blank">View Python Code</a></li>
+                </ul>
+            </div>
+            <a href="#four" class="goto-next scrolly">Next</a>
+        </section>
+
+        <!-- Four -->
+        <section id="four" class="wrapper style1 special fade-up">
+            <div class="container">
+                <header class="major">
+                    <h2>Technical Skills & Tools</h2>
+                    <p>Comprehensive data analysis pipeline utilizing industry-standard tools and methodologies</p>
+                </header>
+                <div class="box alt">
+                    <div class="row gtr-uniform">
+                        <section class="col-4 col-6-medium col-12-xsmall">
+                            <span class="icon-emoji">🔍</span>
+                            <h3>SQL Server Analysis</h3>
+                            <p>Advanced query optimization, data modeling, and performance tuning for large-scale datasets with comprehensive documentation.</p>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+                            <span class="icon-emoji">📊</span>
+                            <h3>Power BI Visualization</h3>
+                            <p>Interactive dashboard creation with advanced DAX calculations, custom visualizations, and executive-level reporting.</p>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+                            <span class="icon-emoji">⚡</span>
+                            <h3>Python Development</h3>
+                            <p>API integration, real-time data processing, and analytics using modern Python frameworks and libraries.</p>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+                            <span class="icon-emoji">📈</span>
+                            <h3>Excel Analytics</h3>
+                            <p>Advanced formulas, pivot tables, and statistical analysis for comprehensive business intelligence reporting.</p>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+                            <span class="icon-emoji">🔄</span>
+                            <h3>ETL Processes</h3>
+                            <p>Data extraction, transformation, and loading pipelines for automated workflow management and data quality.</p>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+                            <span class="icon-emoji">🎯</span>
+                            <h3>Predictive Analysis</h3>
+                            <p>Machine learning models for forecasting trends from 1987 to 2025+ and generating actionable insights.</p>
+                        </section>
+                    </div>
+                </div>
+                <footer class="major">
+                    <ul class="actions special" style="justify-content: center;">
+                        <li><a href="https://github.com/chineduofoegbu98/2024SpotifyStreamingAnalytics" class="button" target="_blank">View Complete Portfolio</a></li>
+                    </ul>
+                </footer>
+            </div>
+        </section>
+
+        <!-- Five -->
+        <section id="five" class="wrapper style2 special fade">
+            <div class="container">
+                <header>
+                    <h2>Get In Touch</h2>
+                    <p>Interested in data analytics collaboration or have questions about the project?</p>
+                </header>
+                <form method="post" action="#" class="cta">
+                    <div class="row gtr-uniform gtr-50" style="justify-content: center; align-items: center;">
+                        <div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Your Email Address" /></div>
+                        <div class="col-3 col-12-xsmall"><input type="submit" value="Get Started" class="fit primary" /></div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <ul class="icons">
+                <li><a href="https://github.com/chineduofoegbu98" target="_blank"><i class="fab fa-github"></i>GitHub</a></li>
+                <li><a href="#"><i class="fab fa-linkedin-in"></i>LinkedIn</a></li>
+                <li><a href="#"><i class="fas fa-envelope"></i>Email</a></li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; 2025 Chinedu Ofoegbu. All rights reserved.</li>
+                <li>Spotify Analytics Portfolio</li>
+            </ul>
+        </footer>
+
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Enhanced scroll effects
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            const scrolled = window.pageYOffset > 100;
+            
+            if (scrolled) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe sections for scroll animations
+        document.querySelectorAll('section:not(#banner)').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+            observer.observe(section);
+        });
+
+        // Tech logo hover effects
+        document.querySelectorAll('.tech-logo').forEach(logo => {
+            logo.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05) rotate(2deg)';
+            });
+            
+            logo.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+
+        // Parallax effect for banner
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const banner = document.querySelector('#banner');
+            if (banner && scrolled < window.innerHeight) {
+                banner.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Form submission handling
+        const form = document.querySelector('.cta');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.querySelector('#email').value;
+                if (email) {
+                    alert('Thank you for your interest! This is a demo form.');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
